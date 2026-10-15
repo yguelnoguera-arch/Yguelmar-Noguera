@@ -1,0 +1,6 @@
+{
+  "name": "Vuelve a tu Centro",
+  "description": "Prototipo interactivo de mindfulness y bienestar diario para volver a tu centro con respiración consciente, micro-ejercicios y bitácora corporal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

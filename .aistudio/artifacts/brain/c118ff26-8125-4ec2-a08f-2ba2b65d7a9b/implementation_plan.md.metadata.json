@@ -1,0 +1,6 @@
+{
+  "summary": "Plan integral de corrección y ampliación:\n1. Eliminación total de la voz femenina sintética y configuración exclusiva de la voz masculina natural (Gemini TTS / Fenrir).\n2. Restauración del selector interactivo de sonido de ambiente en todas las prácticas del reproductor (Lluvia bosque, Lluvia suave, Brisa, Olas, Frecuencias 432/396 Hz).\n3. Reestructuración de 'Programa 14 Días' a 'Programa 5 Semanas' con las prácticas clave precisas de cada etapa (Presencia, Regulación, Comprensión, Dirección, Integración) con mediciones interactivas y desbloqueo progresivo por semanas.\n4. Ampliación del Pack de Sesiones a 7 meditaciones incorporando 2 sesiones afirmativas de autosugestión positiva (Calma/Confianza y Nocturna/Soltar Control).\n5. Mantenimiento intacto del Botiquín Somático y doble SOS.\n6. Implementación del Diario de Gratitud en el perfil del usuario con selector de estados de ánimo y persistencia en Firestore.",
+  "updatedAt": "2026-10-15T09:44:28.850978077Z",
+  "requestFeedback": true,
+  "userFacing": true
+}

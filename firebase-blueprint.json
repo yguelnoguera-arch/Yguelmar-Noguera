@@ -1,0 +1,172 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Perfil del usuario con progreso gamificado del programa de 5 semanas y prácticas completadas",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "ID del usuario autenticado"
+        },
+        "email": {
+          "type": "string",
+          "description": "Correo electrónico del usuario"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Nombre visible del practicante",
+          "maxLength": 120
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "URL de avatar del practicante",
+          "maxLength": 500
+        },
+        "diasCompletados": {
+          "type": "number",
+          "description": "Total de prácticas o días completados en el programa"
+        },
+        "semanaActual": {
+          "type": "number",
+          "description": "Semana actual activa en el programa (1 a 5)"
+        },
+        "semanasCompletadas": {
+          "type": "number",
+          "description": "Total de semanas culminadas con éxito (0 a 5)"
+        },
+        "completedDayIds": {
+          "type": "array",
+          "description": "Array con los números de días o prácticas completadas"
+        },
+        "completedPracticeIds": {
+          "type": "array",
+          "description": "Array con los IDs de prácticas completadas"
+        },
+        "currentPracticeId": {
+          "type": "string",
+          "description": "Identificador de la última práctica o sesión somática activa",
+          "maxLength": 80
+        },
+        "lastCompletedAt": {
+          "type": "string",
+          "description": "Fecha y hora de la última sesión completada",
+          "maxLength": 60
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Fecha de registro del usuario",
+          "maxLength": 60
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Fecha de última actualización del perfil",
+          "maxLength": 60
+        }
+      },
+      "required": [
+        "uid",
+        "diasCompletados",
+        "semanaActual"
+      ]
+    },
+    "UserReflection": {
+      "title": "UserReflection",
+      "description": "Registro somático y reflexión tras completar una práctica",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "ID único del registro de reflexión"
+        },
+        "userId": {
+          "type": "string",
+          "description": "UID del usuario propietario"
+        },
+        "weekNumber": {
+          "type": "number",
+          "description": "Número de semana (1 a 5)"
+        },
+        "dayNumber": {
+          "type": "number",
+          "description": "Número de día o práctica (1 a 7)"
+        },
+        "practiceTitle": {
+          "type": "string",
+          "description": "Título de la práctica somática",
+          "maxLength": 150
+        },
+        "sensations": {
+          "type": "array",
+          "description": "Lista de sensaciones corporales sentidas"
+        },
+        "whatToRelease": {
+          "type": "string",
+          "description": "Sensación o tensión liberada",
+          "maxLength": 600
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Marca de tiempo del registro",
+          "maxLength": 60
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "weekNumber",
+        "whatToRelease"
+      ]
+    },
+    "UserGratitudeEntry": {
+      "title": "UserGratitudeEntry",
+      "description": "Entrada diaria del Diario de Gratitud con estado de ánimo y nota reflexiva",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "ID único de la entrada de gratitud"
+        },
+        "userId": {
+          "type": "string",
+          "description": "UID del usuario propietario"
+        },
+        "mood": {
+          "type": "string",
+          "description": "Estado de ánimo seleccionado (calma, gratitud, serenidad, energia, paz)",
+          "maxLength": 50
+        },
+        "note": {
+          "type": "string",
+          "description": "Texto del agradecimiento diario",
+          "maxLength": 800
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Fecha y hora de creación de la nota",
+          "maxLength": 60
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "mood",
+        "note"
+      ]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Almacena el perfil del usuario, progreso de 5 semanas y prácticas completadas"
+    },
+    "/users/{userId}/reflections/{reflectionId}": {
+      "schema": "UserReflection",
+      "description": "Subcolección de reflexiones y registros corporales de cada usuario"
+    },
+    "/users/{userId}/gratitude/{gratitudeId}": {
+      "schema": "UserGratitudeEntry",
+      "description": "Subcolección del Diario de Gratitud personal de cada usuario"
+    }
+  }
+}
